@@ -1,7 +1,5 @@
-// src/pages/LandingPage.jsx
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { 
   FaCreditCard, 
   FaLeaf, 
@@ -20,9 +18,11 @@ import {
   FaGift,
   FaTractor,
   FaCertificate,
-  FaChartLine
+  FaChartLine,
+  FaUsers,
+  FaClipboardList,
+  FaRegClock
 } from "react-icons/fa";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // ============ SUPPORTING PAGES COMPONENTS ============
 
@@ -172,58 +172,80 @@ const LandingPage = () => {
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Projects Data
+  // Projects Data based on content
   const projects = [
     {
       icon: <FaCreditCard className="text-3xl" />,
-      title: "S-D Card System",
-      description: "Generate S-D cards and provide 10 exclusive benefits to card holders",
+      title: "User Card System",
+      description: "Generate user cards for identification and access to platform services",
       color: "from-violet-500 to-purple-600"
     },
     {
       icon: <FaLeaf className="text-3xl" />,
       title: "Organic Agriculture",
-      description: "Developing organic agricultural activities with pesticides and fertilizers",
+      description: "Providing guidance and support for organic farming practices",
       color: "from-purple-500 to-violet-600"
     },
     {
       icon: <FaSeedling className="text-3xl" />,
       title: "Land Conversion",
-      description: "Conversion of conventional farmland towards organic farming",
+      description: "Support for transitioning towards organic farming methods",
       color: "from-lime-500 to-purple-600"
     },
     {
       icon: <FaHandsHelping className="text-3xl" />,
-      title: "Government Schemes",
-      description: "Direct government scheme services to farmers and individuals",
+      title: "Service Guidance",
+      description: "Providing general guidance related to agricultural services and processes",
       color: "from-blue-500 to-cyan-600"
     },
     {
       icon: <FaProjectDiagram className="text-3xl" />,
       title: "Multipurpose Projects",
-      description: "Starting various agricultural and development projects through our company",
+      description: "Running various agriculture and development-focused initiatives",
       color: "from-purple-500 to-violet-600"
     },
     {
       icon: <FaUserFriends className="text-3xl" />,
       title: "Community Development",
-      description: "Building agricultural communities and support networks",
+      description: "Building farming communities and support networks",
       color: "from-orange-500 to-amber-600"
     },
   ];
 
-  // Benefits of S-D Card
-  const benefits = [
-    "Organic farming resources and guidance",
-    "Direct access to government agricultural schemes",
-    "Special discounts on organic inputs",
-    "Market linkages for organic produce",
-    "Priority in project allocations",
-    "Crop insurance facilities",
-    "Equipment sharing programs",
-    "Free training and workshops",
-    "Community networking opportunities",
-    "Business development support"
+  // Services list for User Services Access
+  const servicesList = [
+    "Organic farming guidance and resources",
+    "Information support for external agricultural programs",
+    "Access to farming-related service coordination",
+    "Participation in community activities",
+    "Updates on ongoing projects",
+    "Training and awareness programs",
+    "Networking opportunities",
+    "General business support guidance"
+  ];
+
+  // Benefits features
+  const benefitsFeatures = [
+    {
+      icon: <FaGift className="text-2xl" />,
+      title: "Exclusive Access",
+      description: "Get access to platform-based services and project updates"
+    },
+    {
+      icon: <FaShieldAlt className="text-2xl" />,
+      title: "Full Support",
+      description: "Guidance and assistance for organic farming activities"
+    },
+    {
+      icon: <FaChartLine className="text-2xl" />,
+      title: "Growth Monitoring",
+      description: "Track progress and receive updates on submitted requests"
+    },
+    {
+      icon: <FaCertificate className="text-2xl" />,
+      title: "Documentation Support",
+      description: "Assistance with document submission and review processes"
+    }
   ];
 
   const handleChange = (e) => {
@@ -236,7 +258,6 @@ const LandingPage = () => {
     setIsLoading(true);
 
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", message: "" });
@@ -274,7 +295,7 @@ const LandingPage = () => {
     if (location.pathname !== '/') return;
 
     const handleScroll = () => {
-      const sections = ["home", "projects", "benefits", "contact"];
+      const sections = ["home", "projects", "services", "benefits", "contact"];
       const scrollY = window.scrollY + 100;
 
       for (const section of sections) {
@@ -302,17 +323,13 @@ const LandingPage = () => {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black text-gray-200 font-sans">
-      {/* Enhanced Navbar */}
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-violet-600 to-purple-700 flex items-center justify-center overflow-hidden">
-  <img 
-    src="/assets/logo.png"
-    alt="Logo"
-    className="w-24 h-24 object-contain"
-  />
-</div>
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-violet-600 to-purple-700 flex items-center justify-center">
+              <FaLeaf className="text-white text-xl" />
+            </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-purple-500 bg-clip-text text-transparent">
               PSWB
             </h1>
@@ -323,6 +340,7 @@ const LandingPage = () => {
             {[
               { id: "home", label: "Home" },
               { id: "projects", label: "Projects" },
+              { id: "services", label: "Services" },
               { id: "benefits", label: "Benefits" },
               { id: "contact", label: "Contact" }
             ].map((item) => (
@@ -356,6 +374,7 @@ const LandingPage = () => {
               {[
                 { id: "home", label: "Home" },
                 { id: "projects", label: "Projects" },
+                { id: "services", label: "Services" },
                 { id: "benefits", label: "Benefits" },
                 { id: "contact", label: "Contact" }
               ].map((item) => (
@@ -377,26 +396,22 @@ const LandingPage = () => {
         )}
       </nav>
 
-      {/* Enhanced Hero Section */}
-      <section
-        id="home"
-        className="min-h-screen pt-24 pb-16 px-4 sm:px-6 flex flex-col justify-center items-center text-center relative overflow-hidden"
-      >
-        {/* Background Effects */}
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen pt-24 pb-16 px-4 sm:px-6 flex flex-col justify-center items-center text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-900/10 to-purple-900/5"></div>
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-violet-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-violet-400 via-purple-400 to-violet-400 bg-clip-text text-transparent leading-tight animate-gradient">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 bg-gradient-to-r from-violet-400 via-purple-400 to-violet-400 bg-clip-text text-transparent leading-tight">
             Transforming Agriculture
             <br />
             Empowering Farmers
           </h1>
           
-          <p className="text-gray-400 mb-10 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            PSWB Business Private Limited - Pioneering organic agriculture development, 
-            government scheme facilitation, and comprehensive agricultural growth through innovative projects.
+          <p className="text-gray-400 mb-8 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+            PSWB Business Private Limited is a private platform focused on supporting organic agriculture 
+            development and providing guidance for farming-related activities through structured projects and services.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -407,15 +422,14 @@ const LandingPage = () => {
               <FaArrowRight />
               <span className="text-lg">Explore Projects</span>
             </button>
-            
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
             {[
-              { value: "5000+", label: "S-D Card Holders" },
-              { value: "1000+", label: "Organic Farms" },
-              { value: "50+", label: "Government Schemes" },
+              { value: "5000+", label: "Registered Users" },
+              { value: "1000+", label: "Organic Farming Participants" },
+              { value: "50+", label: "Service Categories" },
               { value: "25+", label: "Active Projects" }
             ].map((stat, index) => (
               <div key={index} className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-2xl border border-gray-800">
@@ -433,7 +447,7 @@ const LandingPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-violet-400">Our Core Projects</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Transforming agriculture through comprehensive development initiatives
+              Supporting agriculture through structured development initiatives
             </p>
           </div>
 
@@ -458,65 +472,22 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="benefits" className="pt-12 pb-20 px-4 sm:px-6 bg-black">
+      {/* User Services Access Section */}
+      <section id="services" className="py-20 px-4 sm:px-6 bg-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-violet-400">S-D Card Exclusive Benefits</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-violet-400">User Services Access</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Unlock 10 comprehensive benefits with your PSWB S-D Card
+              Access multiple support services through the PSWB platform
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Benefits List */}
-            <div className="bg-gradient-to-b from-gray-900 to-black p-8 rounded-2xl border border-violet-500 shadow-2xl shadow-violet-500/20">
-              <h3 className="text-2xl font-bold text-violet-400 mb-6 text-center">10 Benefits Package</h3>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <FaCheck className="text-violet-500 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-           
-            </div>
-
-            {/* Features */}
-            <div className="space-y-6">
-              {[
-                {
-                  icon: <FaGift className="text-2xl" />,
-                  title: "Exclusive Access",
-                  description: "Get priority access to all our agricultural projects and schemes"
-                },
-                {
-                  icon: <FaShieldAlt className="text-2xl" />,
-                  title: "Full Support",
-                  description: "Comprehensive support for organic farming conversion"
-                },
-                {
-                  icon: <FaChartLine className="text-2xl" />,
-                  title: "Growth Monitoring",
-                  description: "Regular progress tracking and business development assistance"
-                },
-                {
-                  icon: <FaCertificate className="text-2xl" />,
-                  title: "Certification",
-                  description: "Help with organic certification and quality standards"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="bg-gradient-to-b from-gray-900 to-black p-6 rounded-2xl border border-gray-800 hover:border-violet-500/30 transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r from-violet-500/20 to-purple-600/20`}>
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-200 mb-2">{feature.title}</h4>
-                      <p className="text-gray-400">{feature.description}</p>
-                    </div>
-                  </div>
+          <div className="bg-gradient-to-b from-gray-900 to-black rounded-2xl border border-violet-500/30 p-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {servicesList.map((service, index) => (
+                <div key={index} className="flex items-center gap-3 text-gray-300">
+                  <FaCheck className="text-violet-400 flex-shrink-0" />
+                  <span className="text-sm">{service}</span>
                 </div>
               ))}
             </div>
@@ -524,13 +495,30 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Benefits Features Section */}
+      <section id="benefits" className="py-20 px-4 sm:px-6 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefitsFeatures.map((feature, index) => (
+              <div key={index} className="bg-gradient-to-b from-gray-900 to-black p-6 rounded-2xl border border-gray-800 hover:border-violet-500/30 transition-all duration-300 text-center">
+                <div className="p-3 rounded-lg bg-gradient-to-r from-violet-500/20 to-purple-600/20 inline-flex mb-4">
+                  {feature.icon}
+                </div>
+                <h4 className="text-lg font-semibold text-gray-200 mb-2">{feature.title}</h4>
+                <p className="text-gray-400 text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-0 pb-20 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-900">
+      <section id="contact" className="py-20 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-violet-400">Get in Touch</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Contact us for S-D Card applications, project information, or agricultural support
+              Contact us for service inquiries, project information, or support
             </p>
           </div>
 
@@ -541,41 +529,35 @@ const LandingPage = () => {
                 <h3 className="text-2xl font-semibold mb-6 text-violet-300">Contact Information</h3>
                 
                 <div className="space-y-6">
-                  {[
-                    {
-                      icon: <FaEnvelope className="text-violet-400 text-xl" />,
-                      title: "Email",
-                      content: "contact@pswinners.com",
-                      link: "mailto:contact@pswinners.com"
-                    },
-                    {
-                      icon: <FaPhone className="text-violet-400 text-xl" />,
-                      title: "Phone",
-                      content: "+91 9876543210",
-                      link: "tel:+919876543210"
-                    },
-                    {
-                      icon: <FaMapMarkerAlt className="text-violet-400 text-xl" />,
-                      title: "Corporate Office",
-                      content: "PSWB Business Private Limited, Agricultural Development Zone, India"
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 text-gray-300 hover:text-violet-400 transition-colors">
-                      <div className="bg-violet-500/20 p-3 rounded-lg mt-1">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <p className="font-semibold">{item.title}</p>
-                        {item.link ? (
-                          <a href={item.link} className="hover:underline">
-                            {item.content}
-                          </a>
-                        ) : (
-                          <p>{item.content}</p>
-                        )}
-                      </div>
+                  <div className="flex items-start gap-4 text-gray-300">
+                    <div className="bg-violet-500/20 p-3 rounded-lg">
+                      <FaEnvelope className="text-violet-400 text-xl" />
                     </div>
-                  ))}
+                    <div>
+                      <p className="font-semibold">Email</p>
+                      <a href="mailto:contact@pswinners.com" className="hover:text-violet-400">contact@pswinners.com</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 text-gray-300">
+                    <div className="bg-violet-500/20 p-3 rounded-lg">
+                      <FaPhone className="text-violet-400 text-xl" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Phone</p>
+                      <a href="tel:+919876543210" className="hover:text-violet-400">+91 9876543210</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 text-gray-300">
+                    <div className="bg-violet-500/20 p-3 rounded-lg">
+                      <FaMapMarkerAlt className="text-violet-400 text-xl" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Corporate Office</p>
+                      <p>PSWB Business Private Limited, India</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -585,7 +567,6 @@ const LandingPage = () => {
                 <div className="space-y-2 text-gray-300">
                   <p><span className="font-semibold">Monday - Saturday:</span> 9:00 AM - 6:00 PM IST</p>
                   <p><span className="font-semibold">Sunday:</span> 10:00 AM - 4:00 PM IST</p>
-                  <p className="text-sm text-gray-400 mt-4">*S-D Card applications processed on all working days</p>
                 </div>
               </div>
             </div>
@@ -642,9 +623,9 @@ const LandingPage = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your agricultural needs or S-D Card inquiry..."
-                    rows="2"
-                    className="w-full  p-4 bg-gray-900 border border-gray-700 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent text-gray-200 placeholder-gray-500 transition-all resize-none"
+                    placeholder="Tell us about your requirements or support request"
+                    rows="4"
+                    className="w-full p-4 bg-gray-900 border border-gray-700 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent text-gray-200 placeholder-gray-500 transition-all resize-none"
                     required
                   ></textarea>
                 </div>
@@ -674,6 +655,21 @@ const LandingPage = () => {
               </form>
             </div>
           </div>
+
+          {/* Disclaimer */}
+          <div className="mt-12 p-6 bg-amber-500/10 rounded-2xl border border-amber-500/30">
+            <div className="flex items-start gap-3">
+              <FaShieldAlt className="text-amber-400 text-xl flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-amber-400 mb-1">Important Disclaimer:</h3>
+                <p className="text-sm text-gray-400">
+                  PSWB Business Private Limited is a private organization. We are not a government entity and do not represent any government organization.
+                  We do not provide financial services, loans, insurance, or direct government scheme services.
+                  All information provided is for general guidance only. User submissions do not guarantee approval of any service.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -681,52 +677,32 @@ const LandingPage = () => {
       <footer className="bg-gray-950 text-gray-400 py-10 border-t border-gray-800">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 mb-8">
-            {/* Company Info */}
             <div className="text-center md:text-left">
               <h3 className="text-xl font-semibold text-violet-300 mb-2">PSWB Business Private Limited</h3>
               <p className="text-sm max-w-sm">
-                Transforming agriculture through organic farming, government schemes, 
-                and comprehensive agricultural development projects.
+                Supporting agriculture through structured projects and service-based assistance.
               </p>
             </div>
 
-            {/* Contact Details */}
             <div className="text-center md:text-left">
               <h4 className="font-semibold text-violet-300 mb-2">Contact Info</h4>
               <p>Email: <a href="mailto:contact@pswinners.com" className="hover:text-violet-400">contact@pswinners.com</a><br />
               Phone: <a href="tel:+919876543210" className="hover:text-violet-400">+91 9876543210</a></p>
             </div>
 
-{/* Quick Links */}
-<div className="text-center md:text-left">
-  <h4 className="font-semibold text-violet-300 mb-2">Policy Links</h4>
-  <div className="space-y-1">
-    
-    {/* Policy Pages */}
-    <Link to="/privacy-policy" className="block hover:text-violet-400">
-      Privacy Policy
-    </Link>
-
-    <Link to="/terms-conditions" className="block hover:text-violet-400">
-      Terms & Conditions
-    </Link>
-
-    <Link to="/refund-policy" className="block hover:text-violet-400">
-      Refund Policy
-    </Link>
-
-    {/* 👇 Add this */}
-    <Link to="/deletation" className="block hover:text-violet-400">
-      Account Deletion
-    </Link>
-
-  </div>
-</div>
+            <div className="text-center md:text-left">
+              <h4 className="font-semibold text-violet-300 mb-2">Policy Links</h4>
+              <div className="space-y-1">
+                <Link to="/privacy-policy" className="block hover:text-violet-400">Privacy Policy</Link>
+                <Link to="/terms-conditions" className="block hover:text-violet-400">Terms & Conditions</Link>
+                <Link to="/refund-policy" className="block hover:text-violet-400">Refund Policy</Link>
+                <Link to="/deletation" className="block hover:text-violet-400">Account Deletion</Link>
+              </div>
+            </div>
           </div>
 
-          {/* Bottom Note */}
           <div className="text-center text-sm text-gray-500 mt-8 pt-6 border-t border-gray-800">
-            © {new Date().getFullYear()} PSWB Business Private Limited | All Rights Reserved.
+            © 2026 PSWB Business Private Limited | All Rights Reserved.
           </div>
         </div>
       </footer>

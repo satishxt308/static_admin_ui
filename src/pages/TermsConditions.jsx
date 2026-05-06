@@ -1,234 +1,244 @@
-// src/pages/TermsConditions.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFileContract, FaArrowRight } from "react-icons/fa";
+import { 
+  FaFileContract, 
+  FaArrowRight, 
+  FaGavel, 
+  FaShieldAlt, 
+  FaUserCheck, 
+  FaMoneyBillWave,
+  FaExclamationTriangle,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaRegCalendarAlt,
+  FaBalanceScale,
+  FaCopyright
+} from "react-icons/fa";
 
 const TermsConditions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black pt-16 px-4 sm:px-6 py-12">
-      <div className="max-w-5xl mx-auto bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-violet-500/30 shadow-2xl">
-        <h1 className="text-3xl sm:text-4xl font-bold text-violet-400 mb-8 text-center">
-          <FaFileContract className="inline mr-3 mb-1" />
-          Terms & Conditions
-        </h1>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-12 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto">
         
-        <div className="text-gray-300 space-y-8 text-sm sm:text-base leading-relaxed">
-          <div className="bg-gradient-to-r from-violet-500/10 to-purple-600/10 border border-violet-500/30 rounded-xl p-6 mb-6">
-            <p className="text-violet-300 font-semibold text-center">
-              Effective Date: January 2024
+        {/* Header Section */}
+        <div className="text-center mb-10">
+          <div className="inline-flex p-4 rounded-full bg-violet-500/10 mb-4">
+            <FaFileContract className="text-violet-400 text-3xl" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-violet-400 to-purple-500 bg-clip-text text-transparent">
+            Terms & Conditions
+          </h1>
+          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+            Please read these terms carefully before using our services
+          </p>
+          <div className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs">
+            <FaRegCalendarAlt className="text-amber-400 text-xs" />
+            <span>Effective Date: January 2026</span>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-violet-500/30 shadow-2xl overflow-hidden">
+          
+          {/* Acceptance of Terms */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaUserCheck className="text-green-400" /> 1. Acceptance of Terms
+            </h2>
+            <p className="text-gray-300 leading-relaxed">
+              By accessing or using the services of PSWB Business Private Limited ("Company", "we", "our", or "us"), 
+              you agree to be bound by these Terms and Conditions.
             </p>
+            <div className="mt-3 p-3 bg-red-500/10 rounded-lg border-l-4 border-red-500">
+              <p className="text-sm text-gray-300">
+                <strong className="text-red-400">Important:</strong> If you do not agree to these terms, 
+                please do not use our platform.
+              </p>
+            </div>
           </div>
 
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">1. Acceptance of Terms</h3>
-            <div className="space-y-3">
-              <p>
-                By accessing or using the services of PSWB Business Private Limited 
-                ("Company", "we", "our", or "us"), including but not limited to S-D Card 
-                registration, agricultural services, government scheme facilitation, and 
-                project participation, you agree to be bound by these Terms and Conditions.
-              </p>
-              <p>
-                If you do not agree to these terms, please do not use our services.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">2. Services Description</h3>
-            <div className="space-y-3">
-              <p>
-                PSWB Business Private Limited provides:
-              </p>
-              <ul className="list-disc list-inside ml-4 space-y-2">
-                <li>S-D Card registration and associated benefits</li>
-                <li>Organic agricultural development activities</li>
-                <li>Land conversion services to organic farming</li>
-                <li>Government agricultural scheme facilitation</li>
-                <li>Multipurpose agricultural project development</li>
-              </ul>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">3. Eligibility</h3>
-            <div className="space-y-3">
-              <p>
-                To use our services, you must:
-              </p>
-              <ul className="list-disc list-inside ml-4 space-y-2">
-                <li>Be at least 18 years of age</li>
-                <li>Have valid identification documents</li>
-                <li>Provide accurate and complete information</li>
-                <li>Be engaged in agricultural activities (for certain services)</li>
-                <li>Comply with government regulations and requirements</li>
-              </ul>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">4. S-D Card Terms</h3>
-            <div className="space-y-3">
-              <p>
-                4.1 The S-D Card is issued for agricultural purposes only and provides access 
-                to specific benefits as outlined in our S-D Card program.
-              </p>
-              <p>
-                4.2 The S-D Card is non-transferable and must be used only by the registered holder.
-              </p>
-              <p>
-                4.3 We reserve the right to revoke S-D Card privileges for misuse or violation of terms.
+          {/* Services Description */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaShieldAlt className="text-blue-400" /> 2. Services Description
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              PSWB Business Private Limited is a private platform that provides:
+            </p>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>User registration and profile management</li>
+              <li>Document submission and support services</li>
+              <li>Guidance related to farming and general service processes</li>
+              <li>Participation in platform-based projects and activities</li>
+            </ul>
+            <div className="mt-3 p-3 bg-amber-500/10 rounded-lg">
+              <p className="text-sm text-amber-300">
+                <strong>Note:</strong> We do not provide financial services, loans, or direct government services.
               </p>
             </div>
-          </section>
+          </div>
 
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">5. User Responsibilities</h3>
-            <div className="space-y-3">
-              <p>
-                5.1 You agree to provide accurate, current, and complete information during registration 
-                and use of our services.
-              </p>
-              <p>
-                5.2 You are responsible for maintaining the confidentiality of your account information.
-              </p>
-              <p>
-                5.3 You agree to use our services only for lawful agricultural purposes.
-              </p>
-              <p>
-                5.4 You must comply with all applicable laws and regulations related to agriculture 
-                and government schemes.
-              </p>
+          {/* Eligibility */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaUserCheck className="text-cyan-400" /> 3. Eligibility
+            </h2>
+            <p className="text-gray-300 mb-3">To use our services, you must:</p>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>Be at least 18 years of age</li>
+              <li>Provide accurate and complete information</li>
+              <li>Use the platform for lawful purposes only</li>
+            </ul>
+          </div>
+
+          {/* User Account */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaShieldAlt className="text-purple-400" /> 4. User Account
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>Users may create an account to access platform services.</li>
+              <li>You are responsible for maintaining the confidentiality of your account information.</li>
+              <li>We reserve the right to suspend or terminate accounts in case of misuse or violation of these terms.</li>
+            </ul>
+          </div>
+
+          {/* User Responsibilities */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaUserCheck className="text-emerald-400" /> 5. User Responsibilities
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>You agree to provide accurate and up-to-date information.</li>
+              <li>You agree not to misuse the platform or submit false or misleading data.</li>
+              <li>You agree to comply with applicable laws and regulations.</li>
+            </ul>
+          </div>
+
+          {/* Fees and Payments */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaMoneyBillWave className="text-yellow-400" /> 6. Fees and Payments
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>Some services may require fees, which will be clearly communicated before use.</li>
+              <li>All payments are non-refundable unless stated otherwise in our Refund Policy.</li>
+              <li>We may update pricing from time to time.</li>
+            </ul>
+          </div>
+
+          {/* Service Disclaimer */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaExclamationTriangle className="text-orange-400" /> 7. Service Disclaimer
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>All services provided are for support and guidance purposes only.</li>
+              <li>Submission of information or documents does not guarantee approval of any request.</li>
+              <li>We are not responsible for outcomes related to third-party or external services.</li>
+            </ul>
+          </div>
+
+          {/* Intellectual Property */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaCopyright className="text-pink-400" /> 8. Intellectual Property
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>All content, trademarks, and materials on the platform are owned by PSWB Business Private Limited.</li>
+              <li>You may not copy, distribute, or reuse content without permission.</li>
+            </ul>
+          </div>
+
+          {/* Limitation of Liability */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaBalanceScale className="text-red-400" /> 9. Limitation of Liability
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>We are not liable for indirect or incidental damages arising from the use of our platform.</li>
+              <li>Our liability is limited to the amount paid (if any) for the specific service.</li>
+            </ul>
+          </div>
+
+          {/* Termination */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaGavel className="text-gray-400" /> 10. Termination
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>We may suspend or terminate access for violation of these terms.</li>
+              <li>Users may stop using the platform at any time.</li>
+            </ul>
+          </div>
+
+          {/* Governing Law */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaBalanceScale className="text-blue-400" /> 11. Governing Law
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>These terms are governed by the laws of India.</li>
+              <li>Any disputes shall be subject to the jurisdiction of courts in India.</li>
+            </ul>
+          </div>
+
+          {/* Changes to Terms */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaRegCalendarAlt className="text-cyan-400" /> 12. Changes to Terms
+            </h2>
+            <ul className="space-y-2 text-gray-400 ml-6 list-disc">
+              <li>We may update these terms at any time.</li>
+              <li>Continued use of the platform means acceptance of the updated terms.</li>
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div className="p-6 sm:p-8 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-violet-400 mb-3 flex items-center gap-2">
+              <FaEnvelope className="text-green-400" /> 13. Contact Information
+            </h2>
+            <p className="text-gray-300 mb-3">
+              For questions regarding these Terms, contact us:
+            </p>
+            <div className="space-y-2 text-gray-400">
+              <p><strong>Email:</strong> <a href="mailto:legal@pswinners.com" className="text-violet-400 hover:underline">legal@pswinners.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-violet-400 hover:underline">+91 9876543210</a></p>
+              <p><strong>Address:</strong> PSWB Business Private Limited, India</p>
             </div>
-          </section>
+          </div>
 
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">6. Fees and Payments</h3>
-            <div className="space-y-3">
-              <p>
-                6.1 Certain services may require payment of fees as specified at the time of service request.
-              </p>
-              <p>
-                6.2 All fees are quoted in Indian Rupees (INR) unless otherwise specified.
-              </p>
-              <p>
-                6.3 Payments are non-refundable except as specified in our Refund Policy.
-              </p>
-              <p>
-                6.4 We reserve the right to change our fee structure with prior notice.
-              </p>
+          {/* Important Notice / Disclaimer */}
+          <div className="p-6 sm:p-8 bg-gradient-to-r from-red-500/5 to-orange-500/5">
+            <div className="flex items-start gap-3 p-4 bg-red-500/10 rounded-xl border border-red-500/30">
+              <FaExclamationTriangle className="text-red-400 text-xl flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-red-400 mb-1">Important Notice:</h3>
+                <p className="text-sm text-gray-400">
+                  PSWB Business Private Limited is a private platform and is not affiliated with any government organization.
+                  We do not provide loans, financial services, or direct government scheme services.
+                </p>
+              </div>
             </div>
-          </section>
+          </div>
 
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">7. Government Scheme Facilitation</h3>
-            <div className="space-y-3">
-              <p>
-                7.1 We facilitate applications for government agricultural schemes but do not guarantee 
-                scheme approval.
-              </p>
-              <p>
-                7.2 Scheme approval is subject to government policies, eligibility criteria, and available funds.
-              </p>
-              <p>
-                7.3 We are not responsible for delays or rejections by government authorities.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">8. Intellectual Property</h3>
-            <div className="space-y-3">
-              <p>
-                8.1 All content, trademarks, and intellectual property on our platform belong to 
-                PSWB Business Private Limited.
-              </p>
-              <p>
-                8.2 You may not reproduce, distribute, or create derivative works without our 
-                written permission.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">9. Limitation of Liability</h3>
-            <div className="space-y-3">
-              <p>
-                9.1 We are not liable for any indirect, incidental, or consequential damages arising 
-                from use of our services.
-              </p>
-              <p>
-                9.2 Our total liability shall not exceed the fees paid by you for the specific service.
-              </p>
-              <p>
-                9.3 We are not responsible for agricultural outcomes, crop yields, or market prices.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">10. Termination</h3>
-            <div className="space-y-3">
-              <p>
-                10.1 We may terminate or suspend your access to services for violation of these terms.
-              </p>
-              <p>
-                10.2 You may terminate your relationship with us by providing written notice.
-              </p>
-              <p>
-                10.3 Upon termination, your right to use our services immediately ceases.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">11. Governing Law</h3>
-            <div className="space-y-3">
-              <p>
-                11.1 These terms shall be governed by and construed in accordance with the laws of India.
-              </p>
-              <p>
-                11.2 Any disputes shall be subject to the exclusive jurisdiction of courts in India.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">12. Changes to Terms</h3>
-            <div className="space-y-3">
-              <p>
-                12.1 We reserve the right to modify these terms at any time.
-              </p>
-              <p>
-                12.2 Continued use of our services after changes constitutes acceptance of new terms.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-semibold text-violet-300 mb-4">13. Contact Information</h3>
-            <div className="space-y-3">
-              <p>
-                For any questions about these Terms and Conditions, please contact us at:
-              </p>
-              <p>
-                <strong>Email:</strong> legal@pswinners.com<br />
-                <strong>Address:</strong> PSWB Business Private Limited<br />
-                Legal Department, Agricultural Development Zone, India<br />
-                <strong>Phone:</strong> +91 9876543210
-              </p>
-            </div>
-          </section>
-
-          <div className="text-center pt-6">
+          {/* Back to Home Button */}
+          <div className="p-6 sm:p-8 text-center">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 mt-6 bg-gradient-to-r from-violet-600 to-purple-700 hover:from-violet-700 hover:to-purple-800 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-700 hover:from-violet-700 hover:to-purple-800 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-violet-500/20"
             >
               <FaArrowRight />
               Back to Home
             </Link>
           </div>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-8 text-center text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} PSWB Business Private Limited | All Rights Reserved.</p>
         </div>
       </div>
     </div>
