@@ -46,7 +46,7 @@ const SDCardPage = () => (
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               { icon: "🌱", title: "Organic Farming Support", desc: "Access to organic farming resources and guidance" },
-              { icon: "💰", title: "Government Scheme Access", desc: "Direct assistance with government agricultural schemes" },
+              { icon: "💰", title: "Scheme Access", desc: "Direct assistance with agricultural schemes" },
               { icon: "🎁", title: "Special Discounts", desc: "Discounts on organic inputs and equipment" },
               { icon: "📊", title: "Market Linkages", desc: "Direct market access for organic produce" },
               { icon: "🏆", title: "Priority Projects", desc: "First access to new agricultural projects" },
@@ -104,7 +104,7 @@ const AboutUsPage = () => (
           </div>
           <p className="text-lg leading-relaxed">
             PSWB Business Private Limited is committed to transforming agriculture through 
-            organic farming practices, government scheme facilitation, and comprehensive agricultural 
+            organic farming practices, scheme facilitation, and comprehensive agricultural 
             development. We empower farmers and promote sustainable agriculture.
           </p>
         </section>
@@ -133,7 +133,7 @@ const AboutUsPage = () => (
               { icon: "🆔", title: "S-D Card System", desc: "Providing comprehensive benefits to card holders" },
               { icon: "🌿", title: "Organic Agriculture", desc: "Developing organic farming activities" },
               { icon: "🔄", title: "Land Conversion", desc: "Converting land towards organic farming" },
-              { icon: "🏛️", title: "Government Schemes", desc: "Direct service delivery to people" },
+              { icon: "🏛️", title: "Schemes", desc: "Direct service delivery to people" },
               { icon: "🚀", title: "Multipurpose Projects", desc: "Starting various agricultural projects" },
             ].map((project, index) => (
               <div key={index} className="flex items-start gap-4">
