@@ -16,7 +16,7 @@ import {
 const Deletation = () => {
   const handleComposeEmail = () => {
     const emailBody = `Please delete my account from PSWB platform.\n\nMy registered mobile number is: [your mobile number]\nMy name is: [your full name]`;
-    window.location.href = `mailto:support@pswb.co.in?subject=Account Deletion Request – PSWB&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = `mailto:pswinners2025@gmail.com?subject=Account Deletion Request – PSWB&body=${encodeURIComponent(emailBody)}`;
   };
 
   const dataToDelete = [
@@ -69,8 +69,8 @@ const Deletation = () => {
                   </div>
                   <div>
                     <p className="text-gray-200 font-medium">Open your email application and compose a new email to:</p>
-                    <a href="mailto:support@pswb.co.in" className="text-red-400 font-mono text-lg font-semibold hover:underline break-all inline-block mt-1">
-                      support@pswb.co.in
+                    <a href="mailto:pswinners2025@gmail.com" className="text-red-400 font-mono text-lg font-semibold hover:underline break-all inline-block mt-1">
+                      pswinners2025@gmail.com
                     </a>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Deletation = () => {
               <div className="p-6">
                 <div className="bg-gray-900 rounded-xl p-5 border border-gray-700 font-mono text-sm shadow-inner">
                   <p className="text-gray-400 text-xs mb-1">To:</p>
-                  <p className="text-blue-400 font-semibold">support@pswb.co.in</p>
+                  <p className="text-blue-400 font-semibold">pswinners2025@gmail.com</p>
                   <p className="text-gray-400 text-xs mt-3 mb-1">Subject:</p>
                   <p className="text-blue-400 font-semibold">Account Deletion Request – PSWB</p>
                   <div className="border-t border-gray-700 my-4"></div>
@@ -234,11 +234,11 @@ const Deletation = () => {
                 If you have any questions about the account deletion process, please contact us at:
               </p>
               <a 
-                href="mailto:support@pswb.co.in" 
+                href="mailto:pswinners2025@gmail.com" 
                 className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-mono"
               >
                 <FaEnvelope />
-                support@pswb.co.in
+                pswinners2025@gmail.com
               </a>
             </div>
 

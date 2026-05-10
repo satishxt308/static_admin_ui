@@ -126,7 +126,7 @@ const RefundPolicyPage = () => {
             </h2>
             <p className="text-gray-300 mb-3">To request a refund, follow these steps:</p>
             <ol className="space-y-3 text-gray-400 ml-6 list-decimal">
-              <li>Submit a request via email to <strong className="text-violet-400">refunds@pswinners.com</strong></li>
+              <li>Submit a request via email to <strong className="text-violet-400">pswinners2025@gmail.com</strong></li>
               <li>Provide your registered details and payment information</li>
               <li>Clearly mention the reason for the refund request</li>
               <li>Attach any supporting documents if applicable</li>
@@ -158,7 +158,7 @@ const RefundPolicyPage = () => {
               <FaPhone className="text-green-400" /> Contact for Refund Inquiries
             </h2>
             <div className="space-y-2 text-gray-300">
-              <p><strong>Email:</strong> <a href="mailto:refunds@pswinners.com" className="text-violet-400 hover:underline">refunds@pswinners.com</a></p>
+              <p><strong>Email:</strong> <a href="mailto:pswinners2025@gmail.com" className="text-violet-400 hover:underline">pswinners2025@gmail.com</a></p>
               <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-violet-400 hover:underline">+91 9876543210</a></p>
             </div>
           </div>

@@ -163,7 +163,7 @@ const PrivacyPolicy = () => {
               If you have any questions about this Privacy Policy or our practices, please contact us at:
             </p>
             <div className="space-y-2 text-gray-400">
-              <p><strong>Email:</strong> <a href="mailto:privacy@pswinners.com" className="text-violet-400 hover:underline">privacy@pswinners.com</a></p>
+              <p><strong>Email:</strong> <a href="mailto:pswinners2025@gmail.com" className="text-violet-400 hover:underline">pswinners2025@gmail.com</a></p>
               <p><strong>Address:</strong> PSWB Business Private Limited, India</p>
             </div>
           </div>

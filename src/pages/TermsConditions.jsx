@@ -204,7 +204,7 @@ const TermsConditions = () => {
               For questions regarding these Terms, contact us:
             </p>
             <div className="space-y-2 text-gray-400">
-              <p><strong>Email:</strong> <a href="mailto:legal@pswinners.com" className="text-violet-400 hover:underline">legal@pswinners.com</a></p>
+              <p><strong>Email:</strong> <a href="mailto:pswinners2025@gmail.com" className="text-violet-400 hover:underline">pswinners2025@gmail.com</a></p>
               <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-violet-400 hover:underline">+91 9876543210</a></p>
               <p><strong>Address:</strong> PSWB Business Private Limited, India</p>
             </div>

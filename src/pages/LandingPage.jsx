@@ -535,7 +535,7 @@ const LandingPage = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Email</p>
-                      <a href="mailto:contact@pswinners.com" className="hover:text-violet-400">contact@pswinners.com</a>
+                      <a href="mailto:pswinners2025@gmail.com" className="hover:text-violet-400">pswinners2025@gmail.com</a>
                     </div>
                   </div>
                   
@@ -686,7 +686,7 @@ const LandingPage = () => {
 
             <div className="text-center md:text-left">
               <h4 className="font-semibold text-violet-300 mb-2">Contact Info</h4>
-              <p>Email: <a href="mailto:contact@pswinners.com" className="hover:text-violet-400">contact@pswinners.com</a><br />
+              <p>Email: <a href="mailto:pswinners2025@gmail.com" className="hover:text-violet-400">pswinners2025@gmail.com</a><br />
               Phone: <a href="tel:+919876543210" className="hover:text-violet-400">+91 9876543210</a></p>
             </div>
 
